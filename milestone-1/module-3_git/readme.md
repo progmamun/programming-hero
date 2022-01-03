@@ -3,7 +3,7 @@
 `git config --global user.email ""`
 `git config --global user.name ""`
 
-Git-Commands(https://github.com/joshnh/Git-Commands)
+[Git-Commands](https://github.com/joshnh/Git-Commands)
 `git branch (branch-name)`
 `git branch (git branch check)`
 `git -checkout image-add (change branch)`
