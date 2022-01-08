@@ -6,4 +6,4 @@
 
 `parent-selector > child-selector{}`
 
-(html tags)[https://www.tutorialrepublic.com/html-reference/html5-tags.php]
+[html tags](https://www.tutorialrepublic.com/html-reference/html5-tags.php)
