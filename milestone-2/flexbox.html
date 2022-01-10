@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flexbox</title>
+    <style>
+      .container {
+        height: 500px;
+        border: 2px dotted salmon;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        align-items: stretch;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 3px dashed rebeccapurple;
+        font-size: 3em;
+      }
+      #box-1 {
+        order: 2;
+      }
+      #box-2 {
+        order: 1;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>I am flexible right now</h1>
+    <div class="container">
+      <div id="box-1" class="box">Box-1</div>
+      <div id="box-2" class="box">Box-2</div>
+    </div>
+  </body>
+</html>
