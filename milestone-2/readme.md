@@ -10,4 +10,4 @@
 
 [html tags](https://www.tutorialrepublic.com/html-reference/html5-tags.php)
 
-# module8 [css grid](https://www.viget.com/articles/getting-started-with-css-grid-part-1/)
+# module8 [css grid | viget](https://www.viget.com/articles/getting-started-with-css-grid-part-1/)
