@@ -16,4 +16,16 @@
 
 - min-width: when screen width(min-width value - upper) then it works
 
-#update check
+| Transform property                                                                                                  | Transitions property                                                              |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| - transform property allows you to visually manipulate an element by **skewing, rotating, translating, or scaling** | transitions allows you to change property values smoothly, over a given duration. |
+
+### overflow: hidden; allows you to hidden additional content of child element.
+
+# CSS Properties
+
+[css properties | tutorialrepublic](https://www.tutorialrepublic.com/css-reference/css3-properties.php)
+
+### emmet
+
+- `.player*6>img[src="images/players/player-$.png"]+h3{Top Player-$}`
