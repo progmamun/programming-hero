@@ -15,3 +15,5 @@
 # media-query
 
 - min-width: when screen width(min-width value - upper) then it works
+
+#update check
