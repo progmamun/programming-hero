@@ -9,3 +9,5 @@
 
 2. Non-Primitive Data Type
    - Object, Array, Function
+
+- continue; | next step skip korba.
