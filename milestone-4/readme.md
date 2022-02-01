@@ -19,3 +19,4 @@
 - Math.floor |The Math.floor() function returns the largest integer less than or equal to a given number.
 - Math.round | The Math.round() function returns the value of a number rounded to the nearest integer.
 - Math.random |Getting a random number between two values
+- Math.max | Math.min
