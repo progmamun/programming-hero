@@ -25,5 +25,5 @@ function valueMin(arr) {
   return minvalue;
 }
 
-var p = valueMin(array);
+let p = valueMin(array);
 console.log(p);
