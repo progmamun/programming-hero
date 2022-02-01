@@ -1,7 +1,7 @@
 'use strict';
 
 function largestElement(numbers) {
-  let largest = 0;
+  let largest = [0];
 
   for (let i = 0; i < numbers.length; i++) {
     const element = numbers[i];
