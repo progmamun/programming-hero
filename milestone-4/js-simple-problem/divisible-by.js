@@ -6,6 +6,6 @@ for (let i = 1; i <= 50; i++) {
   } else if (i % 5 == 0) {
     console.log('bar');
   } else {
-    console.log('');
+    console.log('i');
   }
 }
