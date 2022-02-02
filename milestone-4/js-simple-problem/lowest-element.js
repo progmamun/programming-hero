@@ -41,4 +41,5 @@ function smallestElement(numbers) {
 
 const ages = [12, 54, 3, 35, -79, 35, 12];
 const small = smallestElement(ages);
-console.log('smallest', small);
+// console.log('smallest', small);
+console.log(`Smallest Value: ${small}`);
