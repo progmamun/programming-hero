@@ -8,3 +8,12 @@ function consoleNumber(i) {
   consoleNumber(i + 1);
 }
 consoleNumber(1);
+
+// sum
+function sum(i) {
+  if (i == 1) {
+    return 1;
+  }
+  return i + sum(--i);
+}
+console.log(sum(5));
