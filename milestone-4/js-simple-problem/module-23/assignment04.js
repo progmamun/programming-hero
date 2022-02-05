@@ -49,8 +49,8 @@ function picnicBudget(people) {
     const totalAnimals = first100 + second200 + restPeopleAll;
     return totalAnimals;
   } else {
-    console.log('Please Enter Valid Number');
+    console.error('Please Enter Valid Number');
   }
 }
-const totalPeopleCost = picnicBudget(501);
+const totalPeopleCost = picnicBudget(206);
 console.log(totalPeopleCost);
