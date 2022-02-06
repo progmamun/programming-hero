@@ -17,3 +17,12 @@ function sum(i) {
   return i + sum(--i);
 }
 console.log(sum(5));
+
+function factorial(i) {
+  if (i == 1) {
+    return 1;
+  }
+  return i * factorial(--i);
+}
+
+console.log(factorial(4));
