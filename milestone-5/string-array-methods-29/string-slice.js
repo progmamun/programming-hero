@@ -21,11 +21,11 @@ const first = 'Amader';
 const second = 'City';
 // const fullString = first + second;
 const fullString = first.concat(second).concat('abc').concat('RJ Kibria');
-// console.log(fullString);
+console.log(fullString);
 
 // === join() === new string create//
 const words2 = ['alim', 'mamun', 'kibira', 'akul'];
 // const allJoined = words2.join('');
 // const allJoined = words2.join(' ');
-const allJoined = words2.join(',');
-console.log(allJoined);
+// const allJoined = words2.join(',');
+// console.log(allJoined);
