@@ -10,5 +10,5 @@ const products = [
 ];
 const productNames = products.map(product => product.name);
 const productNames = products.map(product => product.price);
-// const productNames = products.map(product => console.log(product));
-// products.forEach(product => console.log(product));
+// const productNames = products.map(product => console.log(product)); // map new return kora
+// products.forEach(product => console.log(product)); /// foreach return kora na
