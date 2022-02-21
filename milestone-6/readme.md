@@ -10,3 +10,6 @@
 ---
 
 - অবজেক্ট থেকে অবজেক্ট এর প্রপারটি গুলা যে চেইন দিয়ে শেয়ারড হচ্ছে তাকে বলা হয় prototypical inheritance.
+
+- **JSON:** JavaScript Object Notation
+- JSON.stringify() convert into string
