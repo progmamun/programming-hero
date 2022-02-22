@@ -18,6 +18,7 @@
 ## CRUD:
 - Method - Put: check if already there no effect, | na thakla Add korba,
 - method - Patching: update data
+- Post method: POST is a request method | send some data to the server
 
 ---
 - http get vs post
