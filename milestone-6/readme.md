@@ -13,3 +13,22 @@
 
 - **JSON:** JavaScript Object Notation
 - JSON.stringify() convert into string
+
+---
+## CRUD:
+- Method - Put: check if already there no effect, | na thakla Add korba,
+- method - Patching: update data
+
+---
+- http get vs post
+- CURD vs REST API
+
+# HTTP response status codes
+
+1. Informational responses (100–199)
+2. Successful responses (200–299)
+3. Redirection messages (300–399)
+4. Client error responses (400–499)
+5. Server error responses (500–599)
+ 
+
