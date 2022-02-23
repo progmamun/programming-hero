@@ -23,7 +23,6 @@ const displaySearchResult = meals => {
   searchResult.textContent = '';
   if (meals.length == 0) {
     // show no result found
-    return new Error(`Result couldn't found `);
   }
   meals.forEach(meal => {
     // console.log(meal);
