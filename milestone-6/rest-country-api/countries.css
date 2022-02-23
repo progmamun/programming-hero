@@ -1,0 +1,6 @@
+.country {
+  border: 4px dotted goldenrod;
+  padding: 30px;
+  margin: 30px;
+  border-radius: 10px;
+}
