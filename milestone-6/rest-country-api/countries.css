@@ -1,3 +1,8 @@
+#countries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .country {
   border: 4px dotted goldenrod;
   padding: 30px;
