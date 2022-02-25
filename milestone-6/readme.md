@@ -15,12 +15,15 @@
 - JSON.stringify() convert into string
 
 ---
+
 ## CRUD:
+
 - Method - Put: check if already there no effect, | na thakla Add korba,
 - method - Patching: update data
 - Post method: POST is a request method | send some data to the server
 
 ---
+
 - http get vs post
 - CURD vs REST API
 
@@ -31,5 +34,11 @@
 3. Redirection messages (300–399)
 4. Client error responses (400–499)
 5. Server error responses (500–599)
- 
 
+---
+
+### Js callback function: **A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.**
+
+### Primitive DATA Type:
+
+- string, Number, BigInt, Boolean, Symbol, valueOf()
