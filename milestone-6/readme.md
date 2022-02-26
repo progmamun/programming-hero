@@ -49,3 +49,8 @@
 - delete objectName.property; object er property এবং property র value দুটোকেই delete করে
 - `Object.seal(bottle);` delete করা যাবে না, new property add করা যাবে না, কিন্তু value change করা যাবে ।
 - Object.freeze(); delete, modify, value change করা যাবে না ।
+---
+## get object value
+- objectName.property
+- objectName["property"]
+- objectNmae[expression]
