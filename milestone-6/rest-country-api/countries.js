@@ -11,7 +11,7 @@ const displayCountries = counties => {
   const countriesDiv = document.getElementById('countries');
 
   counties.forEach(country => {
-    console.log(country);
+    // console.log(country);
     const div = document.createElement('div');
     div.classList.add('country');
     div.innerHTML = `
@@ -31,18 +31,19 @@ const displayCountries = counties => {
 };
 
 const loadCountryByName = name => {
+  // console.log(name);
   const url = `https://restcountries.com/v3.1/name/${name}`;
   fetch(url)
     .then(res => res.json())
-    .then(data => displayCountryDetail(data[0]));
+    .then(data => displayCountryDetail(data));
 };
 
 const displayCountryDetail = country => {
-  console.log(country);
+  // console.log(country?.name?.common);
   const countryDiv = document.getElementById('country-details');
   countryDiv.innerHTML = `
-  <h4>${country.name.common}</h4>
-  <p>population: ${country.population}</p>
-  <img width="350px" height="350px" src="${country.flags.png}">
+  <h4>${country[0].name.common}</h4>
+  <p>population: ${country[0].population}</p>
+  <img width="350px" height="350px" src="${country[0].flags.png}"></img> 
   `;
 };
