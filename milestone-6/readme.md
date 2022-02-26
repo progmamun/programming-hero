@@ -54,3 +54,7 @@
 - objectName.property
 - objectName["property"]
 - objectNmae[expression]
+
+---
+### Bind Methods
+- The bind() method allows an object to borrow a method from another object without making a copy of that method.
