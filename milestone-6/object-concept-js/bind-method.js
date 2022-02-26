@@ -14,7 +14,18 @@ const heroBalam = {
   money: 6000,
   name: 'Hero Balam',
 };
+
+const normalGolam = {
+  id: 102,
+  money: 7000,
+  name: 'Normal Balam',
+};
 // kibria.treatDey(100);
 
 const heroTreatDey = kibria.treatDey.bind(heroBalam);
 heroTreatDey(500);
+heroTreatDey(200);
+
+kibria.treatDey(400);
+const normalTreatDey = kibria.treatDey.bind(normalGolam);
+normalTreatDey(2000);
