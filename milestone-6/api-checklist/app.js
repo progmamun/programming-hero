@@ -13,6 +13,9 @@ const displaySingleUser = user => {
 const toggleSpinner = displayStyle => {
   document.getElementById('spinner').style.display = displayStyle;
 };
+const toggleSearchResult = displayStyle => {
+  document.getElementById('meals').style.display = displayStyle;
+};
 const searchMeal = () => {
   const searchText = document.getElementById('search-field').value;
 
@@ -32,16 +35,21 @@ const loadMeals = searchText => {
 const displayMeals = meals => {
   const container = document.getElementById('meals');
   container.textContent = '';
-  meals.forEach(meal => {
+  if (!meals) {
+    return alert`Sorry! this is not valid meals name.`;
+  }
+  meals?.forEach(meal => {
     console.log(meal);
     const div = document.createElement('div');
     div.innerHTML = `
     <h1>${meal.strMeal}</h1>
+    <p>${meal.strIngredient18 ? meal.strIngredient18 : ''}</p>
     <button onclick="loadMealDetail('${meal.strMeal}')">click me </button>
     `;
     container.appendChild(div);
   });
   toggleSpinner('none');
+  toggleSearchResult('block');
 };
 
 loadMeals('fish');
