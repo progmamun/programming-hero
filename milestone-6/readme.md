@@ -42,19 +42,35 @@
 ### Primitive DATA Type:
 
 - string, Number, BigInt, Boolean, Symbol, valueOf()
+
 ---
-- Object.keys(objectName) -> object এর property র  নামগুলো  array হিসেবে return করবে
+
+- Object.keys(objectName) -> object এর property র নামগুলো array হিসেবে return করবে
 - Object.values(objectName) -> Object এর property র value গুলো array হিসেবে return করবে
 - Object.entries(); জোড়ায় জোড়ায় key, value return করবে
 - delete objectName.property; object er property এবং property র value দুটোকেই delete করে
 - `Object.seal(bottle);` delete করা যাবে না, new property add করা যাবে না, কিন্তু value change করা যাবে ।
 - Object.freeze(); delete, modify, value change করা যাবে না ।
+
 ---
+
 ## get object value
+
 - objectName.property
 - objectName["property"]
 - objectNmae[expression]
 
 ---
+
 ### Bind Methods
+
 - The bind() method allows an object to borrow a method from another object without making a copy of that method.
+
+---
+
+# Transfer assignment private repo to my github private repo
+
+`git clone --bare <link>`
+`git push --mirror <link>`
+`git remove -v`
+`git remote set-url origin <link>`
