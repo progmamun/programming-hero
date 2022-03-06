@@ -1,7 +1,8 @@
 'use strict';
 const addItem = () => {
   const nameField = document.getElementById('product-name');
-  const name = nameField;
+  const name = nameField.value;
+  if (!name) return;
 
   // display in the UI
   displayProduct(name);
@@ -14,7 +15,7 @@ const addItem = () => {
 };
 const displayProduct = name => {
   const ul = document.getElementById('products');
-  const li = document.getElementById('li');
+  const li = document.createElement('li');
   li.innerText = name;
   ul.appendChild(li);
 };
