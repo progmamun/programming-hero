@@ -1,0 +1,3 @@
+shortcut
+
+- chrome://restart
