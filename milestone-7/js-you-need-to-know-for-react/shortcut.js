@@ -12,3 +12,13 @@ console.log(food1);
 
 let drink = money > 100 && myVar > 100 ? 'cooke' : 'filter water';
 console.log(drink);
+
+// Number to string conversion
+const num1 = 52;
+const numStr = num1 + '';
+console.log(numStr);
+
+// string to number
+const input = '555';
+const inputNum = +input;
+console.log(inputNum);
