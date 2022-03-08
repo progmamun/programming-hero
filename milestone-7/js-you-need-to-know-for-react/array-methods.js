@@ -6,6 +6,7 @@ const products = [
   { name: 'tv', price: 3700, brand: 'walton', color: 'white' },
   { name: 'AC', price: 3900, brand: 'lenovo', color: 'green' },
 ];
+
 // 1. Map
 const brands = products.map(product => product.brand);
 
@@ -19,6 +20,10 @@ products.forEach(product => {});
 const specificName = products.filter(p => p.name.includes('n'));
 console.log(specificName);
 
+// remove phone means crate a new array without the phone
+const remaining = products.filter(p => p.name !== 'phone');
+console.log(remaining);
+
 // 4. find
 const special = products.find(p => p.name.includes('n'));
-console.log(special);
+// console.log(special);
