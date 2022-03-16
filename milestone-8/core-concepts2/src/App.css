@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.product {
+  background-color: burlywood;
+  padding: 20px;
+  margin: 10px;
+  border: 5px solid #eee7e7;
+  border-radius: 10px;
+}
