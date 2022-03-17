@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import './App.css';
+import Countries from './components/Countries/Countries';
 
 function App() {
   return (
     <div className="App">
-      <LoadCountries></LoadCountries>
+      <Countries></Countries>
+      {/* <LoadCountries></LoadCountries> */}
     </div>
   );
 }
 
-function LoadCountries() {
+/* function LoadCountries() {
   const [countries, setCountries] = useState([]);
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
@@ -41,6 +43,6 @@ function Country(props) {
       <h3>Population: {props.population}</h3>
     </dir>
   );
-}
+} */
 
 export default App;
