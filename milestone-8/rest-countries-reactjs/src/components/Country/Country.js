@@ -7,12 +7,12 @@ const Country = props => {
   return (
     <div className="country">
       <h2>Country Name:{name.common}</h2>
+      <img src={props.country.flags.png} alt="" />
       <h4>population: {population}</h4>
       <p>
         <small>Region: {region}</small>
       </p>
       <p>Area: {area}</p>
-      <img src={props.country.flags.png} alt="" />
     </div>
   );
 };
