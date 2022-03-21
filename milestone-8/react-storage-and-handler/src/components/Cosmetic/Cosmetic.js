@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Cosmetic = () => {
+  const { name, price, id } = props.cosmetic;
+
   const addToCart = id => {
     console.log('item added', id);
   };
@@ -13,6 +15,7 @@ const Cosmetic = () => {
         <small>It has id: {id}</small>
       </p>
       <button onClick={addToCartWithParam}>Add to cart</button>
+      <button onClick={() => addToCart(id)}>Add to cart: ShortCut</button>
     </div>
   );
 };
