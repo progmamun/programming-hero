@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello from my personal smarty app');
@@ -46,6 +47,11 @@ app.get('/user/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const user = users.find(u => u.id === id);
   res.send(user);
+});
+
+app.post('/user', (req, res) => {
+  console.log('request', req.body);
+  res.send('post method success');
 });
 
 app.listen(port, () => {
