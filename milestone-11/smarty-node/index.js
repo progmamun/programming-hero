@@ -12,26 +12,31 @@ app.get('/', (req, res) => {
 
 const users = [
   {
+    id: 01,
     name: 'Christine Torres',
     phone: '(486) 483-6218',
     email: 'etiam@aol.net',
   },
   {
+    id: 02,
     name: 'Justin Suarez',
     phone: '1-518-233-6137',
     email: 'tellus.aenean.egestas@hotmail.net',
   },
   {
+    id: 03,
     name: 'Myles Moran',
     phone: '1-966-346-1427',
     email: 'nulla.facilisis@outlook.net',
   },
   {
+    id: 04,
     name: 'Maggie Britt',
     phone: '1-311-428-4309',
     email: 'consectetuer.adipiscing.elit@google.couk',
   },
   {
+    id: 05,
     name: 'Cheryl Hubbard',
     phone: '(152) 847-1643',
     email: 'sed.eu@hotmail.org',
@@ -40,9 +45,9 @@ const users = [
 
 app.get('/users', (req, res) => {
   if (req.query.name) {
-    const search = req.query.name.toLocaleLowerCase();
+    const search = req.query.name.toLowerCase();
     const matched = users.filter(user =>
-      user.name.toLocaleLowerCase().includes(search)
+      user.name.toLowerCase().includes(search)
     );
     res.send(matched);
   } else {
