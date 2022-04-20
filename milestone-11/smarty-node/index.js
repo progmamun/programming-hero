@@ -1,16 +1,40 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello from my personal smarty app');
 });
 
 const users = [
-  { id: 1, name: 'Mamun', email: 'mamun@gmail.com' },
-  { id: 2, name: 'Mamun', email: 'mamun@gmail.com' },
-  { id: 3, name: 'Mamun', email: 'mamun@gmail.com' },
-  { id: 4, name: 'Mamun', email: 'mamun@gmail.com' },
+  {
+    name: 'Christine Torres',
+    phone: '(486) 483-6218',
+    email: 'etiam@aol.net',
+  },
+  {
+    name: 'Justin Suarez',
+    phone: '1-518-233-6137',
+    email: 'tellus.aenean.egestas@hotmail.net',
+  },
+  {
+    name: 'Myles Moran',
+    phone: '1-966-346-1427',
+    email: 'nulla.facilisis@outlook.net',
+  },
+  {
+    name: 'Maggie Britt',
+    phone: '1-311-428-4309',
+    email: 'consectetuer.adipiscing.elit@google.couk',
+  },
+  {
+    name: 'Cheryl Hubbard',
+    phone: '(152) 847-1643',
+    email: 'sed.eu@hotmail.org',
+  },
 ];
 
 app.get('/users', (req, res) => {
