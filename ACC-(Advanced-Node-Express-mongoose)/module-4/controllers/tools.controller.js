@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const { getDb } = require('../utils/dbConnect');
 
 let tools = [
@@ -6,11 +7,23 @@ let tools = [
   { id: 3, name: 'Hammer3' },
 ];
 
-module.exports.getAllTools = (req, res, next) => {
-  const { limit, page } = req.query;
-  console.log(limit, page);
-  undefined.test();
-  res.json(tools.slice(0, limit));
+module.exports.getAllTools = async (req, res, next) => {
+  try {
+    const { limit, page } = req.query;
+    const db = getDb();
+    // cursor => toArray(), forEach()
+    const tool = await db
+      .collection('tools')
+      .find({})
+      .project({ _id: 0 })
+      .skip(+page * limit)
+      .limit(+limit)
+      .toArray();
+
+    res.status(200).json({ success: true, data: tool });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports.saveATool = async (req, res, next) => {
@@ -26,26 +39,31 @@ module.exports.saveATool = async (req, res, next) => {
         .status(400)
         .send({ status: false, error: 'Something went wrong!' });
     }
-    res.send(`Tool added with id: ${result.insertedId}`);
+    res.send({
+      success: true,
+      message: `Tool added with id: ${result.insertedId}`,
+    });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports.getToolDetail = (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  // const filter = {_id: id};
-  const foundTool = tools.find((tool) => (tool.id = Number(id)));
-  res.status(200).send({
-    success: true,
-    messages: 'Success',
-    data: foundTool,
-  });
-  res.status(500).send({
-    success: false,
-    error: 'Internal Server error.',
-  });
+module.exports.getToolDetail = async (req, res, next) => {
+  try {
+    const db = getDb();
+    const { id } = req.params;
+
+    if (!ObjectId.isValid(id)) {
+      return res
+        .status(400)
+        .json({ success: false, error: 'Not a valid tool id.' });
+    }
+    const tool = await db.collection('tools').findOne({ _id: ObjectId(id) });
+
+    res.status(200).json({ success: true, data: tool });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports.updateTool = (req, res) => {
