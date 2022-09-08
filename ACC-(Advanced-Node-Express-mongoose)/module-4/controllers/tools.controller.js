@@ -123,3 +123,17 @@ module.exports.deleteTool = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.test = async (req, res, next) => {
+  for (let i = 0; i < 100000; i++) {
+    const db = getDb();
+    db.collection('test').insertOne({ name: `test ${i}`, age: i });
+  }
+};
+
+module.exports.testGet = async (req, res, next) => {
+  const db = getDb();
+
+  const result = await db.collection('test').find({ age: 99999 }).toArray();
+  res.json(result);
+};

@@ -46,4 +46,12 @@ router
   .patch(toolsControllers.updateTool)
   .delete(toolsControllers.deleteTool);
 
+router.route('/test').post(toolsControllers.test).get(toolsControllers.testGet);
+
+router
+  .route('/:id')
+  .get(viewCount, limiter, toolsControllers.getToolDetail)
+  .patch(toolsControllers.updateTool)
+  .delete(toolsControllers.deleteTool);
+
 module.exports = router;
