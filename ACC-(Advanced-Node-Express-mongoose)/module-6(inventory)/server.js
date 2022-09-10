@@ -1,12 +1,19 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
-const colors = require("colors");
-const DBConnect = require("./utils/dbConnect");
+const express = require('express');
+const mongoose = require('mongoose');
+const colors = require('colors');
+const connectDB = require('./config/db');
+const dotenv = require('dotenv');
 
-const app = require("./app");
+// Load env vars
+dotenv.config({ path: './config/config.env' });
 
 // database connection
-DBConnect();
+connectDB();
+
+const app = express();
+
+// Body Parser
+app.use(express.json());
 
 // server
 const port = process.env.PORT || 8080;
@@ -14,4 +21,3 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`App is running on port ${port}`.yellow.bold);
 });
-
