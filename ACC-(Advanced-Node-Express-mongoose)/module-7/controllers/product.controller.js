@@ -16,7 +16,41 @@ exports.getProducts = async (req, res, next) => {
       .limit(2)
       .sort({ quantity: -1 }); */
     // const product = await Product.findById('698769191263896483');
-    const products = await getProductsService();
+
+    // {price: {$ gt: 50}}
+    // {price: {gt: '50'}}
+    // console.log(req.query);
+    const filters = { ...req.query };
+
+    // sort, page, limit -> exclude
+    const excludeFields = ['sort', 'page', 'limit'];
+    excludeFields.forEach((field) => delete filters[field]);
+
+    // gt, lt, gte, lte
+    let filtersString = JSON.stringify(filters);
+    filtersString = filtersString.replace(
+      /\b(gt|gte|lt|lte)\b/g,
+      (match) => `$${match}`
+    );
+    filters = JSON.parse(filtersString);
+    // console.log(JSON.parse(filtersString));
+
+    const queries = {};
+
+    if (req.query.sort) {
+      // price, quantity -> 'price quantity'
+      const sortBy = req.query.sort.split(',').join(' ');
+      queries.sortBy = sortBy;
+      console.log(sortBy);
+    }
+
+    if (req.query.fields) {
+      const fields = req.query.fields.split(',').join(' ');
+      queries.fields = fields;
+      console.log(fields);
+    }
+
+    const products = await getProductsService(filters, queries);
 
     req.status(200).json({
       status: 'success',
