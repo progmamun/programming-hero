@@ -7,4 +7,8 @@ router
   .get(productController.getProducts)
   .post(productController.createProduct);
 
+router.route('/bulk-update').patch(productController.balkUpdateProduct);
+
+router.route('/:id').patch(productController.updateProducts);
+
 module.exports = router;
