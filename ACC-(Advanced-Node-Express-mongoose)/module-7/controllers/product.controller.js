@@ -50,6 +50,22 @@ exports.getProducts = async (req, res, next) => {
       console.log(fields);
     }
 
+    if (req.query.page) {
+      const { page = 1, limit = 10 } = req.query;
+
+      // 50 products
+      // each page 10 product
+      /* page 1 -> 1-10
+      page 2 -> 11-20
+      page 3 -> 21-30
+      page 4 -> 31-40
+      page 5 -> 41-50 */
+
+      const skip = (page - 1) * limit;
+      queries.skip = skip;
+      queries.limit = parseInt(limit);
+    }
+
     const products = await getProductsService(filters, queries);
 
     req.status(200).json({

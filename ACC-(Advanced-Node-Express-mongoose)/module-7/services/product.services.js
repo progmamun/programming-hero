@@ -2,9 +2,13 @@ const Product = require('../models/Product');
 
 exports.getProductsService = async (filters, queries) => {
   const products = await Product.find(filters)
+    .skip(queries.skip)
+    .limit(queries.limit)
     .select(queries.fields)
     .sort(queries.sortBy);
-  return products;
+  const totalProducts = await Product.countDocuments(filters);
+  const pageCount = Math.ceil(totalProducts / limit);
+  return { totalProducts, pageCount, products };
 };
 
 exports.createProductService = async (data) => {
