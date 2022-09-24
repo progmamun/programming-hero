@@ -5,6 +5,10 @@ const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const app = express();
 
+// route files
+const productRoute = require('./routes/product.route');
+const brandRoute = require('./routes/brand.route');
+
 // Load env vars
 dotenv.config({ path: './config/config.env' });
 
@@ -14,15 +18,13 @@ connectDB();
 // Body Parser
 app.use(express.json());
 
-// routes
-const productRoute = require('./routes/product.route');
-
 app.get('/', (req, res) => {
   res.send('Route is working! YaY!');
 });
 
-// routes
+// mount routes
 app.use('/api/v1/product', productRoute);
+app.use('/api/v1/brand', brandRoute);
 
 // server
 const port = process.env.PORT || 8080;
