@@ -11,7 +11,7 @@ exports.getBrandService = async () => {
 };
 
 exports.getBrandByIdService = async (id) => {
-  const brand = await Brand.findOne({ _id: id });
+  const brand = await Brand.findOne({ _id: id }).populate('products');
   return brand;
 };
 
