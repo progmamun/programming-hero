@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
 });
 
 // mount routes
-app.use('/api/v1/product', productRoute);
-app.use('/api/v1/brand', brandRoute);
+app.use('/api/product', productRoute);
+app.use('/api/brand', brandRoute);
 
 // server
 const port = process.env.PORT || 8080;
