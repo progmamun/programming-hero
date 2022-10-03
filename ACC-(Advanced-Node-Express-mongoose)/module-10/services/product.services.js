@@ -6,13 +6,23 @@ exports.getProductsService = async (filters, queries) => {
     .limit(queries.limit)
     .select(queries.fields)
     .sort(queries.sortBy);
-  const totalProducts = await Product.countDocuments(filters);
-  const pageCount = Math.ceil(totalProducts / limit);
-  return { totalProducts, pageCount, products };
+  const total = await Product.countDocuments(filters);
+  const page = Math.ceil(total / limit);
+  return { total, page, products };
 };
 
 exports.createProductService = async (data) => {
   const product = await Product.create(data);
+  const { _id: productId, brand } = product;
+  // update brand
+
+  const res = await Product.updateOne(
+    {
+      _id: brand.id,
+    },
+    { $push: { products: productId } }
+  );
+  console.log(res);
   return product;
 };
 
