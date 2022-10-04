@@ -1,29 +1,28 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 const { ObjectId } = mongoose.Schema.Types;
-
 const storeSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      trim: true,
-      required: [true, 'Please provide a store name'],
+      required: true,
       lowercase: true,
       enum: {
         values: [
-          'Dhaka',
-          'Chattogram',
-          'Rajshahi',
-          'Barishal',
-          'Khulna',
-          'Rangpur',
-          'Mymensingh',
-          'Sylhet',
+          'dhaka',
+          'rajshahi',
+          'chattogram',
+          'sylhet',
+          'khulna',
+          'barishal',
+          'rangpur',
+          'mymensingh',
         ],
-        message: '{VALUE} is not a valid name',
+        message: '{VALUE} is not  acorrect division!',
       },
     },
-    description: String,
+    description: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ['active', 'inactive'],
@@ -44,4 +43,5 @@ const storeSchema = mongoose.Schema(
 );
 
 const Store = mongoose.model('Store', storeSchema);
+
 module.exports = Store;

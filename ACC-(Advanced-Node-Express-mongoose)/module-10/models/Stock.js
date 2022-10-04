@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 const { ObjectId } = mongoose.Schema.Types;
-
 // schema design
+const validator = require('validator');
+
 const stockSchema = mongoose.Schema(
   {
     productId: {
@@ -53,7 +53,6 @@ const stockSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-
     brand: {
       name: {
         type: String,
@@ -66,7 +65,7 @@ const stockSchema = mongoose.Schema(
       },
     },
     status: {
-      type: string,
+      type: String,
       required: true,
       enum: {
         values: ['in-stock', 'out-of-stock', 'discontinued'],
@@ -110,6 +109,7 @@ const stockSchema = mongoose.Schema(
         ref: 'Supplier',
       },
     },
+
     sellCount: {
       type: Number,
       default: 0,
@@ -120,16 +120,6 @@ const stockSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-
-productSchema.pre('save', function (next) {
-  //this ->
-  console.log(' Before saving data');
-  if (this.quantity == 0) {
-    this.status = 'out-of-stock';
-  }
-
-  next();
-});
 
 const Stock = mongoose.model('Stock', stockSchema);
 

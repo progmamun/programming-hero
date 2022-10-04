@@ -15,7 +15,15 @@ router.post(
 //   productController.fileUpload
 // ); multiple img or file
 
-router.route('/bulk-update').patch(productController.balkUpdateProduct);
+/* router.post("/file-upload", uploader.array("image"), productController.fileUpload); */
+
+{
+  /* <input type="file" name="image" /> */
+}
+// const formData = new FormData();
+// formData.append("image", forData);
+
+router.route('/bulk-update').patch(productController.bulkUpdateProduct);
 router.route('/bulk-delete').delete(productController.bulkDeleteProduct);
 
 router

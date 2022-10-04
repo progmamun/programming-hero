@@ -5,8 +5,8 @@ exports.createSupplierService = async (data) => {
   return result;
 };
 
-exports.getSupplierService = async () => {
-  const suppliers = await Supplier.find({}).select('-products -suppliers');
+exports.getSuppliersService = async () => {
+  const suppliers = await Supplier.find({});
   return suppliers;
 };
 
@@ -16,7 +16,7 @@ exports.getSupplierByIdService = async (id) => {
 };
 
 exports.updateSupplierService = async (id, data) => {
-  const result = await Supplier.find({ _id: id }, data, {
+  const result = await Supplier.updateOne({ _id: id }, data, {
     runValidators: true,
   });
   return result;

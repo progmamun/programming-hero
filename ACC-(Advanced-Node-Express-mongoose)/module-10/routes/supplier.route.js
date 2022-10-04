@@ -1,11 +1,12 @@
 const express = require('express');
-const router = express.Router();
 const supplierController = require('../controllers/supplier.controller');
+
+const router = express.Router();
 
 router
   .route('/')
-  .get(supplierController.getSuppliers)
-  .post(supplierController.createSupplier);
+  .post(supplierController.createSupplier)
+  .get(supplierController.getSuppliers);
 
 router
   .route('/:id')

@@ -18,7 +18,7 @@ const uploader = multer({
     if (supportedImage.test(extension)) {
       cb(null, true);
     } else {
-      cb(new Error('must be a png/jpg image'));
+      cb(new Error('Must be a png/jpg image'));
     }
   },
   limits: {

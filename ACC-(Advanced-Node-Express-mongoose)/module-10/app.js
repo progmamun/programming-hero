@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const Stock = require('./models/Stock');
 
-// middleware
+//middlewares
 app.use(express.json());
 app.use(cors());
 
-// routes file
+//routes
 const productRoute = require('./routes/product.route');
 const brandRoute = require('./routes/brand.route');
 const categoryRoute = require('./routes/category.route');
@@ -16,7 +17,7 @@ const supplierRoute = require('./routes/supplier.route');
 const stockRoute = require('./routes/stock.route');
 
 app.get('/', (req, res) => {
-  res.send('Route is Working! YaY!');
+  res.send('Route is working! YaY!');
 });
 
 app.use('/api/v1/product', productRoute);

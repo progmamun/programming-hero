@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const { ObjectId } = mongoose.Schema.Types;
-
 const supplierSchema = mongoose.Schema(
   {
     name: {
@@ -14,7 +13,7 @@ const supplierSchema = mongoose.Schema(
     },
     email: {
       type: String,
-      validator: [validator.isEmail, 'Provide a valid Email'],
+      validate: [validator.isEmail, 'Provide a valid Email'],
       trim: true,
       lowercase: true,
       unique: true,
@@ -39,12 +38,13 @@ const supplierSchema = mongoose.Schema(
           validator: (value) => {
             return validator.isMobilePhone(value);
           },
+          message: 'Please provide a valid phone number',
         },
       },
     ],
     emergencyContactNumber: {
       type: String,
-      required: [true, 'Please provide a emergency contact number'],
+      required: [true, 'Please provide  a emergency contact number'],
       validate: {
         validator: (value) => {
           return validator.isMobilePhone(value);
@@ -52,11 +52,15 @@ const supplierSchema = mongoose.Schema(
         message: 'Please provide a valid phone number',
       },
     },
-    tradeLicenseNumber: {
+    tradeLicenceNumber: {
       type: Number,
-      required: [true, 'Please provide your trade license number'],
+      required: [true, 'Please provide your trade licence number'],
     },
     presentAddress: {
+      type: String,
+      required: [true, 'Please provide your present address'],
+    },
+    permanentAddress: {
       type: String,
       required: [true, 'Please provide your present address'],
     },
@@ -66,16 +70,16 @@ const supplierSchema = mongoose.Schema(
       lowercase: true,
       enum: {
         values: [
-          'Dhaka',
-          'Rajshahi',
-          'Chattogram',
-          'Sylhet',
-          'Khulna',
-          'Barishal',
-          'Rangpur',
-          'Mymensingh',
+          'dhaka',
+          'rajshahi',
+          'chattogram',
+          'sylhet',
+          'khulna',
+          'barishal',
+          'rangpur',
+          'mymensingh',
         ],
-        message: '{VALUE} is not correct division',
+        message: '{VALUE} is not  acorrect division!',
       },
     },
     imageURL: {
@@ -92,16 +96,6 @@ const supplierSchema = mongoose.Schema(
       default: 'active',
       enum: ['active', 'inactive'],
     },
-    // createdAt: {
-    //   type: String,
-    //   default: Date.now(),
-    //   select: 0,
-    // },
-    // updatedAt: {
-    //   type: String,
-    //   default: Date.now(),
-    //   select: 0,
-    // },
   },
   {
     timestamps: true,
