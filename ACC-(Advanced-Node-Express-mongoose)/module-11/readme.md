@@ -8,3 +8,13 @@
 1. Session-based
 2. Token-based
 3. OAuth
+
+---
+
+## Yarn Package
+
+- `yarn add bcryptjs`
+- `yarn add form-data`
+- `yarn add jsonwebtoken`
+- ``
+- ``
