@@ -1,18 +1,20 @@
 const {
   createSupplierService,
-  getSupplierService,
+  getSuppliersService,
   getSupplierByIdService,
   updateSupplierService,
-} = require('../services/supplier.services');
+} = require('../services/supplier.service');
 
-exports.createSupplier = async (req, res, next) => {
+exports.createSupplier = async (req, res) => {
   try {
     const result = await createSupplierService(req.body);
-    res.status(201).json({
+
+    res.status(200).json({
       status: 'success',
       message: 'Successfully created the supplier',
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       status: 'fail',
       error: "Couldn't create the supplier",
@@ -22,12 +24,14 @@ exports.createSupplier = async (req, res, next) => {
 
 exports.getSuppliers = async (req, res, next) => {
   try {
-    const suppliers = await getSupplierService(req.body);
-    res.status(201).json({
+    const suppliers = await getSuppliersService(req.body);
+
+    res.status(200).json({
       status: 'success',
       data: suppliers,
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       status: 'fail',
       error: "Couldn't get the suppliers",
@@ -38,21 +42,24 @@ exports.getSuppliers = async (req, res, next) => {
 exports.getSupplierById = async (req, res, next) => {
   const { id } = req.params;
   try {
-    const supplier = await getSupplierByIdService();
+    const supplier = await getSupplierByIdService(id);
+
     if (!supplier) {
       return res.status(400).json({
         status: 'fail',
-        error: "Couldn't find a Supplier with this id",
+        error: "Couldn't find a supplier with this id",
       });
     }
-    res.status(201).json({
+
+    res.status(200).json({
       status: 'success',
       data: supplier,
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       status: 'fail',
-      error: "Couldn't get the Supplier",
+      error: "Couldn't get the brands",
     });
   }
 };
@@ -67,19 +74,19 @@ exports.updateSupplier = async (req, res, next) => {
     if (!result.nModified) {
       return res.status(400).json({
         status: 'fail',
-        error: "Couldn't update the Supplier with this id",
+        error: "Couldn't update the supplier with this id",
       });
     }
 
     res.status(200).json({
       status: 'success',
-      message: 'Successfully updated the Supplier',
+      message: 'Successfully updated the supplier',
     });
   } catch (error) {
     console.log(error);
     res.status(400).json({
       status: 'fail',
-      error: "Couldn't update the Supplier",
+      error: "Couldn't update the brand",
     });
   }
 };

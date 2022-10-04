@@ -7,6 +7,7 @@ const {
 exports.getStores = async (req, res) => {
   try {
     const stores = await getStoresService();
+
     res.status(200).json({
       status: 'success',
       data: stores,
@@ -14,7 +15,7 @@ exports.getStores = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       status: 'fail',
-      message: "can't get the stores",
+      message: "Can't get the stores",
       error: error.message,
     });
   }
@@ -23,15 +24,16 @@ exports.getStores = async (req, res) => {
 exports.createStore = async (req, res) => {
   try {
     const result = await createStoreService(req.body);
-    req.status(201).json({
+
+    res.status(200).json({
       status: 'success',
-      message: 'Store created successfully!',
+      messgae: 'Store created successfully!',
       data: result,
     });
   } catch (error) {
     res.status(400).json({
       status: 'fail',
-      message: "could't create the store",
+      message: "Couldn't create store",
       error: error.message,
     });
   }
@@ -41,7 +43,8 @@ exports.getStoreById = async (req, res) => {
   const { id } = req.params;
   try {
     const store = await getStoreByIdService(id);
-    req.status(200).json({
+
+    res.status(200).json({
       status: 'success',
       data: store,
     });

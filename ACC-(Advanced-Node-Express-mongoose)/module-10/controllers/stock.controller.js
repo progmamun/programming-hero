@@ -22,7 +22,7 @@ exports.getStocks = async (req, res, next) => {
     const queries = {};
 
     if (req.query.sort) {
-      // price,quantity   -> 'price quantity'
+      // price,qunatity   -> 'price quantity'
       const sortBy = req.query.sort.split(',').join(' ');
       queries.sortBy = sortBy;
       console.log(sortBy);
@@ -97,7 +97,7 @@ exports.createStock = async (req, res, next) => {
 
     res.status(200).json({
       status: 'success',
-      message: 'Stock created successfully!',
+      messgae: 'Stock created successfully!',
       data: result,
     });
   } catch (error) {
