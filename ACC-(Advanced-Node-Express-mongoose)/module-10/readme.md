@@ -1,3 +1,6 @@
+## https://studio3t.com/ || aggregate 
+
+
 ## Schema -> Model -> Query
 
 - `yarn add validator`
