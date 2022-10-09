@@ -3,11 +3,22 @@ const Stock = require('../models/Stock');
 const ObjectId = mongoose.Types.ObjectId;
 
 exports.getStocksService = async (filters, queries) => {
-  const stocks = await Stock.find(filters)
+  /* const stocks = await Stock.find(filters)
     .skip(queries.skip)
     .limit(queries.limit)
     .select(queries.fields)
-    .sort(queries.sortBy);
+    .sort(queries.sortBy); */
+
+    // aggregrate
+    const stocks = await Stock.aggregate([
+      {$match: {}},
+      {$project: {
+        store: 1,
+        price: {$convert: {input: '$price', to: 'int'}},
+        quantity: 1,
+      }},
+      {$group: {_id: '$store.name', totalProductsPrice: {$sum: {$multiply: ['$price', '$quantity']}}}}
+    ])
 
   const total = await Stock.countDocuments(filters);
   const page = Math.ceil(total / queries.limit);
@@ -16,10 +27,31 @@ exports.getStocksService = async (filters, queries) => {
 };
 
 exports.getStockByIdService = async (id) => {
-  const stock = await Stock.findOne({ _id: id })
+  /* const stock = await Stock.findOne({ _id: id })
     .populate('store.id')
     .populate('suppliledBy.id')
-    .populate('brand.id');
+    .populate('brand.id'); */
+
+    const stock = await Stock.aggregate([
+      //stage 1
+      {$match: {_id: ObjectId(id)}},
+      {$project: {
+        category:1,
+        quantity: 1,
+        price: 1,
+        productId: 1,
+        name:1,
+        'brand.name': {$toLower: '$brand.name'}
+      }},
+      {
+        $lookup: {
+          from: 'brands',
+          localField: 'brand.name',
+          foreginField: 'name',
+          as: 'brandDetails'
+        }
+      }
+    ])
   return stock;
 };
 
