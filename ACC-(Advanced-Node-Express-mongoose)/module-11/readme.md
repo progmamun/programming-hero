@@ -13,8 +13,12 @@
 
 ## Yarn Package
 
+- $node `require('crypto').randomBytes(64).toString('hex')`
+
 - `yarn add bcryptjs`
-- `yarn add form-data`
+- `yarn add form-data googleapis mailgun.js nodemailer`
 - `yarn add jsonwebtoken`
-- ``
-- ``
+
+---
+
+- [mongodb-transaction](https://medium.com/@radheyg11/mongodb-transaction-with-node-js-b81618bebae8)
