@@ -4,6 +4,8 @@
 
 1. First ACC Node.js
    ![acc-node](/img/acc-node.jpg)
+2. Second ACC Redux(Redux From Beginner Level To Advanced)
+   ![acc-redux](/img/acc-redux.jpg)
 
 ---
 
