@@ -188,7 +188,7 @@
     ]
   },
   {
-    "_id": 6,
+    "_id": 66,
     "model": "Intel Core i5-11400 11th Gen Gaming PC",
     "image": "https://live.staticflickr.com/65535/52522308721_4f2de69503_o.jpg",
     "status": true,
@@ -225,7 +225,7 @@
     ]
   },
   {
-    "_id": 7,
+    "_id": 77,
     "model": "Intel 11th Gen Core i5-11400f Gaming PC",
     "image": "https://live.staticflickr.com/65535/52522855818_98bdd4c07a_o.jpg",
     "status": true,
@@ -265,7 +265,7 @@
     ]
   },
   {
-    "_id": 8,
+    "_id": 99,
     "model": "AMD Ryzen 7 5800X3D Gaming PC",
     "image": "https://live.staticflickr.com/65535/52521844332_5f738162d8_o.jpg",
     "status": true,
