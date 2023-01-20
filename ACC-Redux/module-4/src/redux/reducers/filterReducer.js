@@ -30,7 +30,6 @@ export const filterReducer = (state = initialState, action) => {
           },
         };
       }
-
     case TOGGLE_STOCK:
       return {
         ...state,

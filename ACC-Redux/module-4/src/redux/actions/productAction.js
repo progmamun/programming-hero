@@ -14,10 +14,10 @@ export const loadProduct = (data) => {
   };
 };
 
-export const addProduct = (product) => {
+export const addProduct = (data) => {
   return {
     type: ADD_PRODUCT,
-    payload: product,
+    payload: data,
   };
 };
 

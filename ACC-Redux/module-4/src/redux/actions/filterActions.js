@@ -6,6 +6,7 @@ export const toggleBrand = (brandName) => {
     payload: brandName,
   };
 };
+
 export const toggleStock = () => {
   return {
     type: TOGGLE_STOCK,
