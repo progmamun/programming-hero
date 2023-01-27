@@ -9,3 +9,8 @@ The Redux Toolkit package is intended to be the standard way to write Redux logi
 ## Package:
 
 - `yarn create react-app toolkit-test --template redux`
+
+#### for existing project
+
+- ‌‌‌‌‌‌‌‌`yarn add @reduxjs/toolkit react-redux‌‌`
+  ‌‌‌‌‌‌‌
