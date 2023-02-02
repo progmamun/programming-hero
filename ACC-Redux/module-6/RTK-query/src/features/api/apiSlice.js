@@ -18,9 +18,19 @@ export const productApi = createApi({
         body: data,
       }),
     }),
+    removeProduct: builder.mutation({
+      query: (id) => ({
+        url: `/product/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useGetProductsQuery, useAddProductMutation } = productApi;
+export const {
+  useGetProductsQuery,
+  useAddProductMutation,
+  useRemoveProductMutation,
+} = productApi;
 
 // mutation array return korba

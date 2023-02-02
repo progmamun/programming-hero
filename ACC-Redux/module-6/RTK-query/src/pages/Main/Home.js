@@ -8,7 +8,10 @@ import { getProducts } from "../../features/products/productsSlice";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { data, isLoading, isSuccess, isError, error } = useGetProductsQuery();
+  const { data, isLoading, isSuccess, isError, error } = useGetProductsQuery(
+    null,
+    { refetchOnMountOrArgChange: true }
+  );
   const products = data?.data;
 
   const activeClass = "text-white  bg-indigo-500 border-white";
