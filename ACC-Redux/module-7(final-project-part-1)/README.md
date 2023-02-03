@@ -7,4 +7,4 @@
 ## Package:
 
 - `yarn add @reduxjs/toolkit react-redux`
-- ``
+- `yarn add firebase`
