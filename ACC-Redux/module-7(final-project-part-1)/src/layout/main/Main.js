@@ -6,7 +6,7 @@ const Main = () => {
   const { pathname } = useLocation();
 
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <div
         className={` ${
