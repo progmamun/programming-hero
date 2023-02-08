@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+  }
+
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  select,
+  select[multiple] {
+    @apply text-lg py-2 px-5  border border-gray-300 focus:border-primary focus:ring-primary rounded-full;
+  }
+
+  textarea {
+    @apply text-lg py-2 px-5  border border-gray-300 focus:border-primary focus:ring-primary rounded-3xl;
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    @apply text-primary focus:border-primary focus:ring-primary h-5 w-5;
+  }
+  [type="checkbox"] {
+    @apply rounded;
+  }
+}
+
+.btn {
+  @apply px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all hover:px-6 disabled:text-gray-300 disabled:border-gray-300 disabled:hover:px-4 disabled:hover:bg-transparent disabled:cursor-not-allowed;
+}
