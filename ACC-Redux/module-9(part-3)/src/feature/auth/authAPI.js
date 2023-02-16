@@ -1,12 +1,12 @@
 import apiSlice from "../api/apiSlice";
 import { getUser } from "./authSlice";
 
-const authApi = apiSlice.injectEndpoints({
+const authSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (data) => ({
-        method: "POST",
         url: "/user",
+        method: "POST",
         body: data,
       }),
       async onQueryStarted(data, { dispatch, queryFulfilled }) {
@@ -18,7 +18,12 @@ const authApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    getRegisteredUser: builder.query({
+      query: (email) => ({
+        url: `/user/${email}`,
+      }),
+    }),
   }),
 });
 
-export const { useRegisterMutation } = authApi;
+export const { useRegisterMutation, useGetRegisteredUserQuery } = authSlice;
