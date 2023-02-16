@@ -5,18 +5,27 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
 import loginImage from "../assets/login.svg";
-import { googleLogin, loginUser } from "../feature/auth/authSlice";
+import {
+  googleLogin,
+  loginUser,
+  toggleLoading,
+} from "../feature/auth/authSlice";
 
 const Login = () => {
-  const { isLoading, email, isError, error } = useSelector(
-    (state) => state.auth
-  );
-  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {
+    user: { email },
+    isLoading,
+    isError,
+    error,
+  } = useSelector((state) => state.auth);
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = ({ email, password }) => {
     dispatch(loginUser({ email, password }));
+    dispatch(toggleLoading());
+    reset();
   };
 
   const handleGoogleLogin = () => {

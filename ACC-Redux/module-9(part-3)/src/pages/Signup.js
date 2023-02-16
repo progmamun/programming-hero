@@ -3,16 +3,26 @@ import loginImage from "../assets/login.svg";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser, googleLogin } from "../feature/auth/authSlice";
+import {
+  createUser,
+  googleLogin,
+  toggleLoading,
+} from "../feature/auth/authSlice";
 import { toast } from "react-hot-toast";
 const Signup = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(true);
+  const {
+    user: { email },
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useSelector((state) => state.auth);
   const { handleSubmit, register, reset, control } = useForm();
   const password = useWatch({ control, name: "password" });
   const confirmPassword = useWatch({ control, name: "confirmPassword" });
-  const { isError, error } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
-  const [disabled, setDisabled] = useState(true);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (
@@ -39,8 +49,10 @@ const Signup = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     dispatch(createUser({ email: data.email, password: data.password }));
+    dispatch(toggleLoading());
+    reset();
   };
 
   return (
