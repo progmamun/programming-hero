@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
-import { useRegisterMutation } from "../../feature/auth/authApi";
+import { useRegisterMutation } from "../../feature/auth/authAPI";
 import { useSelector } from "react-redux";
 
 const EmployerRegistration = () => {
