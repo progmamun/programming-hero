@@ -4,23 +4,32 @@ import { BsArrowRightShort, BsArrowReturnRight } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   useApplyMutation,
+  useGetAppliedJobsQuery,
   useJobByIdQuery,
   useQuestionMutation,
   useReplyMutation,
-} from "../feature/job/jobApi";
+} from "../feature/job/jobAPI";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import { useGetRegisteredUserQuery } from "../feature/auth/authAPI";
+import Loading from "../components/reusable/Loading";
 
 const JobDetails = () => {
   const [reply, setReply] = useState("");
-  const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const { id } = useParams();
+  const {
+    user: { email, role },
+  } = useSelector((state) => state.auth);
+
   const { register, handleSubmit, reset } = useForm();
   const { data, isLoading, isError } = useJobByIdQuery(id, {
     pollingInterval: 1000,
   });
+  const { data: userData, isFetching: userFetching } =
+    useGetRegisteredUserQuery(email);
+
   const {
     companyName,
     position,
@@ -36,22 +45,33 @@ const JobDetails = () => {
     queries,
     _id,
   } = data?.data || {};
-  const [apply] = useApplyMutation();
+  const [
+    apply,
+    { isSuccess: applySuccess, isError: applyError, error: applyErr },
+  ] = useApplyMutation();
+  const { data: jobData, isFetching: jobFetching } = useGetAppliedJobsQuery({
+    email,
+    jobId: id,
+  });
   const [sendQuestion] = useQuestionMutation();
   const [sendReply] = useReplyMutation();
 
+  if (jobFetching || userFetching) {
+    return <Loading />;
+  }
+
   const handleApply = () => {
-    if (user.role === "employer") {
+    if (role === "employer") {
       toast.error("You need a candidate account to apply.");
       return;
     }
-    if (user.role === "") {
+    if (role === "") {
       navigate("/register");
       return;
     }
     const data = {
-      userId: user._id,
-      email: user.email,
+      userId: _id,
+      email: email,
       jobId: _id,
     };
     apply(data);
@@ -60,8 +80,8 @@ const JobDetails = () => {
   const handleQuestion = (data) => {
     const queData = {
       ...data,
-      userId: user._id,
-      email: user.email,
+      userId: _id,
+      email: email,
       jobId: _id,
     };
     sendQuestion(queData);
@@ -145,7 +165,7 @@ const JobDetails = () => {
                     </p>
                   ))}
 
-                  {user.role === "employer" && (
+                  {role === "employer" && (
                     <div className="flex gap-3 my-5">
                       <input
                         placeholder="Reply"
@@ -165,7 +185,7 @@ const JobDetails = () => {
                 </div>
               ))}
             </div>
-            {user.role === "candidate" && (
+            {role === "candidate" && (
               <form onSubmit={handleSubmit(handleQuestion)}>
                 <div className="flex gap-3 my-5">
                   <input

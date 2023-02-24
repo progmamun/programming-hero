@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link, useLocation } from "react-router-dom";
-import { logout } from "../../feature/auth/authSlice";
+import { logOut } from "../../feature/auth/authSlice";
 import auth from "../../firebase/firebase.config";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
-      dispatch(logout());
+      dispatch(logOut());
     });
   };
 

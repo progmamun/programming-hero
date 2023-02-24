@@ -2,7 +2,7 @@ import React from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { FiTrash } from "react-icons/fi";
 import { useSelector } from "react-redux";
-import { usePostJobMutation } from "../../feature/job/jobApi";
+import { usePostJobMutation } from "../../feature/job/jobAPI";
 
 const AddJob = () => {
   const { companyName } = useSelector((state) => state.auth.user);
